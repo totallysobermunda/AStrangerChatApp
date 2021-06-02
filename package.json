@@ -1,0 +1,25 @@
+{
+  "name": "AStrangerChatApp",
+  "version": "1.0.0",
+  "description": "epsile - an anonymous one-to-one chat\r ====",
+  "main": "epsile-server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/totallysobermunda/AStrangerChatApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/totallysobermunda/AStrangerChatApp/issues"
+  },
+  "homepage": "https://github.com/totallysobermunda/AStrangerChatApp#readme"
+}
