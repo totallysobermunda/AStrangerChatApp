@@ -4,7 +4,7 @@
 'use strict';
 
 // config
-var port = 8001;
+var port = process.env.PORT || 8001;
 
 // load and initialize modules
 var express = require('express');
