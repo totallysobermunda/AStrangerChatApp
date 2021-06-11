@@ -12,6 +12,7 @@ var Epsile = new function() {
     var chatMainDiv = domID('chatMainDiv');
     var chatArea = domID('chatArea');
     var disconnectButton = domID('disconnectButton');
+    var sendButton = domID('sendButton');
     var startButton = domID('startButton');
     var typingtimer = null;
     var isTyping = false;
@@ -62,6 +63,8 @@ var Epsile = new function() {
             logChat(0, "You are now chatting with a random stranger. Say hi!");
             disconnectButton.disabled = false;
             disconnectButton.value = "Disconnect";
+            sendButton.disabled = false;
+            sendButton.value = "Send";
             chatArea.disabled = false;
             chatArea.value = "";
             chatArea.focus();
@@ -90,8 +93,10 @@ var Epsile = new function() {
             setTyping(false);
             disconnectType = true;
             disconnectButton.disabled = false;
+            sendButton.disabled = false;
             //logChat(-1, "<input type=button value='Start a new chat' onclick='Epsile.newStranger();'>");
             disconnectButton.value = "New";
+            sendButton.value = "Send";
             chatArea.disabled = true;
             chatArea.focus();
         });
@@ -130,6 +135,7 @@ var Epsile = new function() {
             peopleOnlineSpan.innerHTML = "0";
             chatArea.disabled = true;
             disconnectButton.disabled = true;
+            sendButton.disabled = true;
             setTyping(false);
             disconnectType = false;
         });
@@ -140,12 +146,14 @@ var Epsile = new function() {
         var who2 = "";
         var message2 = message;
         var node = document.createElement("div");
+        node.style.display = "flex";
         if (type > 0) {
             if (type === 2) {
-                who = "<span class='strangerChat'>Stranger: <\/span>";
+                who = "<label class='message-stranger'><span class='strangerChat'>Stranger: <\/span>";
                 who2 = "Stranger: ";
             } else {
-                who = "<span class='youChat'>You: <\/span>";
+                node.style.justifyContent = "flex-end";
+                who = "<label class='message-you'><span class='youChat'>You: <\/span>";
             }
             if (message.substr(0, 4) === '/me ') {
                 message = message.substr(4);
@@ -206,6 +214,7 @@ var Epsile = new function() {
         if (socket) {
             chatArea.disabled = true;
             disconnectButton.disabled = true;
+            sendButton.disabled = true;
             socket.emit("new");
             chatArea.value = "";
             chatArea.focus();
@@ -214,6 +223,7 @@ var Epsile = new function() {
             setTyping(false);
             disconnectType = false;
             disconnectButton.value = "Disconnect";
+            sendButton.disabled = "Send";
         }
     };
 
@@ -229,6 +239,22 @@ var Epsile = new function() {
             disconnectType = true;
             disconnectButton.disabled = true;
             disconnectButton.value = "Disconnect";
+        }
+    };
+
+    this.doSend = function() {
+        var msg = chatArea.value;
+        if (msg.length > 0) {
+            if (typingtimer !== null) {
+                clearTimeout(typingtimer);
+            }
+            if (isTyping) {
+                socket.emit("typing", false); // Not typing
+            }
+            isTyping = false;
+            socket.emit("chat", msg);
+            logChat(1, msg);
+            chatArea.value = "";
         }
     };
 
@@ -267,6 +293,7 @@ var Epsile = new function() {
     window.addEventListener("blur", blurred, false);
     window.addEventListener("focus", focused, false);
     disconnectButton.addEventListener('click', this.doDisconnect, false);
+    sendButton.addEventListener('click', this.doSend, false);
     chatArea.addEventListener("keypress", function(e) {
         var kc = e.keyCode;
         if (kc === 13) {
