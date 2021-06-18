@@ -54,7 +54,7 @@ var Epsile = new function() {
 
         socket.on('connect', function() {
             chatMainDiv.innerHTML = "";
-            logChat(0, "Waiting for a stranger..");
+            logChat(0, "Waiting for a stranger..", "center");
             setTyping(false);
         });
 
@@ -141,7 +141,7 @@ var Epsile = new function() {
         });
     }
 
-    function logChat(type, message) {
+    function logChat(type, message, align) {
         var who = "";
         var who2 = "";
         var message2 = message;
@@ -149,11 +149,11 @@ var Epsile = new function() {
         node.style.display = "flex";
         if (type > 0) {
             if (type === 2) {
-                who = "<label class='message-stranger'><span class='strangerChat'>Stranger: <\/span>";
+                who = "<div><span class='message-stranger'><span class='strangerChat'>Stranger: <\/span>";
                 who2 = "Stranger: ";
             } else {
                 node.style.justifyContent = "flex-end";
-                who = "<label class='message-you'><span class='youChat'>You: <\/span>";
+                who = "<div><span class='message-you'><span class='youChat'>You: <\/span>";
             }
             if (message.substr(0, 4) === '/me ') {
                 message = message.substr(4);
@@ -174,9 +174,13 @@ var Epsile = new function() {
                 }
             }
             message = msg.join(" ");
-            node.innerHTML = who + message;
+            node.innerHTML = who + message + "</span> </div>";
         } else {
-            node.innerHTML = "<span class='consoleChat'>" + message + "<\/span>";
+            if (align == "center") {
+                node.innerHTML = "<div class='wait-message'><span class='consoleChat'>" + message + "<\/span></div>";
+            } else {
+                node.innerHTML = "<span class='consoleChat'>" + message + "<\/span>";
+            }
         }
         chatMainDiv.appendChild(node);
         chatMain.scrollTop = chatMain.scrollHeight;
@@ -219,7 +223,7 @@ var Epsile = new function() {
             chatArea.value = "";
             chatArea.focus();
             chatMainDiv.innerHTML = "";
-            logChat(0, "Waiting for a stranger..");
+            logChat(0, "Waiting for a stranger..", "center");
             setTyping(false);
             disconnectType = false;
             disconnectButton.value = "Disconnect";
