@@ -1,0 +1,11 @@
+---
+application:
+  name: "astrangerchatapp"
+  project: "Akadbkad"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-astrangerchatapp"
+  routes:
+  - application_name: "astrangerchatapp"
+    paths:
+    - "/*"
