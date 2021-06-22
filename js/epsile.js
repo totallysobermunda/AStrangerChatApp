@@ -34,9 +34,9 @@ var Epsile = new function() {
 
     function setTyping(state) {
         if (state) {
-            isTypingDiv.style.bottom = 80 + "px";
+            isTypingDiv.style.bottom = 60 + "px";
         } else {
-            isTypingDiv.style.bottom = (80 - isTypingDiv.offsetHeight) + "px";
+            isTypingDiv.style.bottom = (60 - isTypingDiv.offsetHeight) + "px";
         }
         strangerTyping = state;
     }
@@ -48,9 +48,6 @@ var Epsile = new function() {
             reconnect: false,
             'force new connection': true
         });
-
-        chatMainDiv.innerHTML = "";
-        logChat(0, "Connecting to server...");
 
         socket.on('connect', function() {
             chatMainDiv.innerHTML = "";
