@@ -34,9 +34,9 @@ var Epsile = new function() {
 
     function setTyping(state) {
         if (state) {
-            isTypingDiv.style.bottom = 60 + "px";
+            isTypingDiv.style.bottom = 65 + "px";
         } else {
-            isTypingDiv.style.bottom = (60 - isTypingDiv.offsetHeight) + "px";
+            isTypingDiv.style.bottom = (65 - isTypingDiv.offsetHeight) + "px";
         }
         strangerTyping = state;
     }
@@ -48,6 +48,9 @@ var Epsile = new function() {
             reconnect: false,
             'force new connection': true
         });
+
+        //chatMainDiv.innerHTML = "";
+        //logChat(0, "Connecting to server...");
 
         socket.on('connect', function() {
             chatMainDiv.innerHTML = "";
@@ -146,11 +149,11 @@ var Epsile = new function() {
         node.style.display = "flex";
         if (type > 0) {
             if (type === 2) {
-                who = "<div><span class='message-stranger'><span class='strangerChat'>Stranger: <\/span>";
+                who = "<div><span class='message-stranger'><span class='strangerChat'><\/span>";
                 who2 = "Stranger: ";
             } else {
                 node.style.justifyContent = "flex-end";
-                who = "<div><span class='message-you'><span class='youChat'>You: <\/span>";
+                who = "<div><span class='message-you'><span class='youChat'><\/span>";
             }
             if (message.substr(0, 4) === '/me ') {
                 message = message.substr(4);
