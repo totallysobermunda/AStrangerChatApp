@@ -122,7 +122,9 @@ padding: 5px;
 		font-size: 14px;
 
 		& > div {
-			padding: 2px;
+			padding: 5px;
+			position: relative;
+			top: 10px;
 		}
 	}
 }
@@ -302,7 +304,7 @@ textarea:focus {
 	padding-left: 3px;
 	padding-top: 2px;
 	font-size: 14px;
-	background-color: rgba(16, 0, 16, 0.7);
+	background-color: rgb(171,163,163);
 	-webkit-transition: bottom .1s ease-in-out;
 	-moz-transition: bottom .1s ease-in-out;
 	transition: bottom .1s ease-in-out;
@@ -479,5 +481,12 @@ textarea:focus {
 	border-bottom-style:solid;
 	border-color: #e8e8e8;
 	border-bottom-width: 1px;
+	display: flex;
+}
+
+.topborder {
+	border-top-style: solid;
+	border-color: #e8e8e8;
+	border-top-width: 5px;
 	display: flex;
 }
