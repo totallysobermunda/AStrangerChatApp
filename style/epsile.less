@@ -226,11 +226,8 @@ padding: 5px;
 	top: 15%;
 	padding: 10px;
 	margin: 0px;
-	background-color: rgb(0, 225, 255);
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(4, 65, 73)), to(rgb(5, 99, 116)));
-	background-image: -moz-linear-gradient(top, #ccc, #888);
-	background-image: linear-gradient(top, #ccc, #888);
-	border: 1px solid #aaa;
+	background-color: rgb(238, 16, 120);
+	//border: 1px solid #aaa;
 	font-size: 14px;
 	font-family: Arial, sans-serif;
 	color: rgb(255, 255, 255);
@@ -243,13 +240,13 @@ padding: 5px;
 		outline: none;
 	}
 
-	&:active {
+	/*&:active {
 		background-color: rgb(0, 255, 0);
 		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#999), to(#ccc));
 		background-image: -moz-linear-gradient(top, #999, #ccc);
 		background-image: linear-gradient(top, #999, #ccc);
 		color: rgb(0, 0, 0);
-	}
+	}*/
 }
 
 #chatAreaWrap {
@@ -304,7 +301,6 @@ textarea:focus {
 	padding-left: 3px;
 	padding-top: 2px;
 	font-size: 14px;
-	background-color: rgb(171,163,163);
 	-webkit-transition: bottom .1s ease-in-out;
 	-moz-transition: bottom .1s ease-in-out;
 	transition: bottom .1s ease-in-out;
@@ -329,7 +325,7 @@ textarea:focus {
     padding: 10px;
     border: 1px solid gray;
     border-radius: 10px;
-    max-width: 250px;
+    max-width: 300px;
 	display: block;
     word-break: break-all;
 }
@@ -357,10 +353,7 @@ textarea:focus {
 	width: 100%;
 	height: 100%;
 	display: block;
-	background-color: rgb(207, 25, 25);
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(230, 31, 31)), to(rgb(226, 139, 139)));
-	background-image: -moz-linear-gradient(top, rgb(230, 31, 31), rgb(226, 139, 139));
-	background-image: linear-gradient(top, rgb(230, 31, 31), rgb(226, 139, 139));
+	background-image: url('akadbkad.jpg');
 	overflow-y: scroll;
 }
 
@@ -415,16 +408,13 @@ textarea:focus {
 
 #startButton {
 	font-weight: bold;
-	padding: 15px; 
-	border: 4px solid #08F;
+	padding: 10px; 
+	//border: 4px solid rgb(0, 0, 0);
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	border-radius: 100px;
 	margin: 4px;
-	background-color: #3CF;
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#3CF), to(#09F));
-	background-image: -moz-linear-gradient(top, #3CF, #09F);
-	background-image: linear-gradient(top, #3CF, #09F);
+	background-color: rgb(238, 16, 120);
 	-webkit-box-shadow: 1px 3px 20px #000;
 	color: white;
 	font-size: 18px;
@@ -434,19 +424,19 @@ textarea:focus {
 	&:focus {
 		outline: none;
 	}
-	&:hover {
+	/*&:hover {
 		background-color: #6CF;
 		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#6CF), to(#39F));
 		background-image: -moz-linear-gradient(top, #6CF, #39F);
 		background-image: linear-gradient(top, #6CF, #39F);
-	}
-	&:active {
+	}*/
+	/*&:active {
 		background-color: #39F;
 		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#39F), to(#0AF));
 		background-image: -moz-linear-gradient(top, #39F, #0AF);
 		background-image: linear-gradient(top, #39F, #0AF);
 		color: #9FF;
-	}
+	}*/
 	&:disabled {
 		background-color: #666;
 		background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#999));
@@ -481,7 +471,7 @@ textarea:focus {
 	border-bottom-style:solid;
 	border-color: #e8e8e8;
 	border-bottom-width: 1px;
-	display: flex;
+	padding-bottom: 25px;
 }
 
 .topborder {
