@@ -66,6 +66,7 @@ var Epsile = new function() {
             sendButton.disabled = false;
             sendButton.value = "Send";
             chatArea.disabled = false;
+            camera.disabled = false;
             chatArea.value = "";
             chatArea.focus();
         });
@@ -93,7 +94,8 @@ var Epsile = new function() {
             setTyping(false);
             disconnectType = true;
             disconnectButton.disabled = false;
-            sendButton.disabled = false;
+            sendButton.disabled = true;
+            camera.disabled = true;
             //logChat(-1, "<input type=button value='Start a new chat' onclick='Epsile.newStranger();'>");
             disconnectButton.value = "New";
             sendButton.value = "Send";
