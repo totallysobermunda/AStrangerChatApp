@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
         var less = {
@@ -38,6 +39,8 @@
             <div id="isTypingDiv" class="consoleChat">Stranger&nbsp;is&nbsp;typing...</div>
 
             <section id="panelRow" class="topborder">
+                <input type="file" id="myFileInput" />
+                <input type="image" id="camera" disabled src="https://img.icons8.com/ios-glyphs/240/000000/unsplash.png " onclick="document.getElementById( 'myFileInput').click() " value="Select a File " />
                 <input type=button value="Send" id="sendButton" disabled>
                 <div id="chatAreaWrap">
                     <textarea id="chatArea" disabled="disabled"></textarea>
@@ -50,10 +53,13 @@
             </section>
         </section>
 
-        <section id="welcomeScreen" style="background-image: url('BG2.jpg');">
+        <section id="welcomeScreen" style="	background-image: url(BG2.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;">
 
             <section id="startButtonDiv">
-                <div>
+                <div class="container">
                     <!-- <div id="description">
                         Epsile is a simple open-source clone of <a href="http://omegle.com" target="_blank">Omegle</a>, where people get connected to other people, in a one-to-one chat.<br> If everyone is paired up, you must wait until someone finish
                         a conversation. Chats are anonymous,<br> meaning that the strangers you chat with don't know anything about you (unless you describe yourself).
@@ -69,9 +75,9 @@
                 position: relative;
                 bottom: 25px;">
                 <input type=button value="Chat Room" id="chatroomButton">
-                <a href="./">
+                <!--<a href="./">
                     <div id="logo"></div>
-                </a>
+                    </a>-->
             </header>
 
             <!--<section id="peopleOnlineSection">
@@ -115,15 +121,15 @@
                         </div>
                         <div class="col-sm-3">
                             <h3>LEGAL</h3>
-                            <p><a href=privacy-policy.html class=link-static>Privacy Policy</a></p>
-                            <p><a href=terms-of-service.html class=link-static>Terms of Service</a></p>
+                            <p><a style="text-decoration:none" href=privacy-policy.html class=link-static>Privacy Policy</a></p>
+                            <p><a style="text-decoration:none" href=terms-of-service.html class=link-static>Terms of Service</a></p>
                             <p>Cookie Policy</p>
                             <p>Intellectual Property</p>
                         </div>
                         <div class="col-sm-3">
                             <h3>SOCIAL</h3>
-                            <p><img src="https://img.icons8.com/android/24/000000/twitter.png" width="auto" /><img src="https://img.icons8.com/windows/32/000000/instagram-new.png" width="auto" /><img src="https://img.icons8.com/ios-filled/50/000000/tiktok.png"
-                                    width="35px" /><img src="https://img.icons8.com/material-sharp/24/000000/youtube-play.png" width="40px" /><img src="https://img.icons8.com/material-rounded/24/000000/facebook.png" width="36px" /></p>
+                            <p><img src="https://img.icons8.com/android/100/000000/twitter.png" width="35px" /><img src="https://img.icons8.com/windows/100/000000/instagram-new.png" width="40px" /><img src="https://img.icons8.com/ios-filled/100/000000/tiktok.png"
+                                    width="35px" /><img src="https://img.icons8.com/material-sharp/100/000000/youtube-play.png" width="40px" /><img src="https://img.icons8.com/material-rounded/100/000000/facebook.png" width="36px" /></p>
                         </div>
 
                         <div class="col-sm-3">
