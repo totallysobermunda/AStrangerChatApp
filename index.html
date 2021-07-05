@@ -13,6 +13,7 @@
     No logs, No registration, No obligations.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="akadbkad FAVICON.png" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -30,20 +31,21 @@
         <section id="chatWindow">
             <section id="chatMain">
                 <header class="border" style="border-bottom-width: 5px;">
-                    <img src="akadbkad.png" width="auto" ; height="60px">
+                    <img src="akadbkad.png" onclick="redirect()" width="auto" ; height="60px">
                     <input type=button value="Disconnect" id="disconnectButton" disabled>
                 </header>
                 <div id="chatMainDiv" style="position: relative; top: 60px;"></div>
+                <p><img id="output" width="200" /></p>
             </section>
 
             <div id="isTypingDiv" class="consoleChat">Stranger&nbsp;is&nbsp;typing...</div>
 
             <section id="panelRow" class="topborder">
-                <input type="file" id="myFileInput" />
-                <input type="image" id="camera" disabled src="https://img.icons8.com/ios-glyphs/240/000000/unsplash.png " onclick="document.getElementById( 'myFileInput').click() " value="Select a File " />
-                <input type=button value="Send" id="sendButton" disabled>
-                <div id="chatAreaWrap">
-                    <textarea id="chatArea" disabled="disabled"></textarea>
+                <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
+                <label for="file" style="cursor: pointer;"><img id="camera" src="https://img.icons8.com/ios-glyphs/240/000000/unsplash.png "></label>
+                <input type="image" id="sendButton" disabled src="https://img.icons8.com/ios-glyphs/90/26e07f/filled-sent.png ">
+                <div id="chatArea" contenteditable style="width: 92%; outline: none;">
+
                 </div>
             </section>
 
@@ -74,7 +76,7 @@
                 <img src="akadbkad white.png" style="width: 200px;
                 position: relative;
                 bottom: 25px;">
-                <input type=button value="Chat Room" id="chatroomButton">
+                <!--<input type=button value="Chat Room" id="chatroomButton">-->
                 <!--<a href="./">
                     <div id="logo"></div>
                     </a>-->
@@ -106,51 +108,47 @@
 
             <footer class="container-fluid text-center">
                 <div class="container-fluid bg-3 text-center">
-                    <h3 class="border">abcd</h3><br>
+                    <h5 style="font-weight: bold;"><br>At Akadbkad you get to talk to strangers without having to login. Moreover you get to chat anonymously. No login, no obligation and no more waiting for matches.</h5><br>
+                    <p>Single people, listen up: If you’re looking for love, want to start dating, or just keep it casual, but are bored of waiting for matches, you need to be on Akadbkad. Let’s be real, the dating landscape looks very different today, as
+                        most people are meeting online. With Akadbkad, you have millions of other single people at your fingertips and they’re all ready to meet someone like you. Whether you’re straight or in the LGBTQIA community, Akadbkad’s here to
+                        bring you all the sparks.
+                    </p>
+                    <p>There really is something for everyone on Akadbkad. Want to get into a relationship? You got it. Trying to find some new friends? Say no more. New kid on campus and looking to make the most of your college experience? Akadbkad isn’t
+                        just your average dating site — it’s a place where you actually get to talk to people without and login. With Akadbkad, no more waiting for matches. No login, Chat anonymously.
+                    </p>
+                    <p>Akadbkad is 100% safe and secured. All you chats are deleted the moment you disconnect.</p>
+                    <p class="border">For any further info you can check out our <a href="privacy-policy.html">Privacy policy</a> and <a href="terms-of-service.html">Terms of service.</a></p>
                     <div class="row" style="border-bottom-style:solid;
                     border-color: #e8e8e8;
-                    border-bottom-width: 1px;
-                    padding-bottom: 50px;">
-                        <div class="col-sm-3">
-                            <h3>SAFETY</h3>
-                            <p>Community Guidelines</p>
-                            <p>Safety Tips</p>
-                            <p>Safety and Policy</p>
-                            <p>Safety and reporting</p>
-                            <p>Security</p>
+                    border-bottom-width: 1px;">
+                        <div class="col-sm-3" id="SAFETY">
+                            <h3 style="font-weight: bold;">SAFETY</h3>
+                            <p><a style="text-decoration:none" href=safety-tips.html class=link-static>Safety Tips</a></p>
                         </div>
-                        <div class="col-sm-3">
-                            <h3>LEGAL</h3>
+                        <div class="col-sm-3" id="LEGAL">
+                            <h3 style="font-weight: bold;">LEGAL</h3>
                             <p><a style="text-decoration:none" href=privacy-policy.html class=link-static>Privacy Policy</a></p>
                             <p><a style="text-decoration:none" href=terms-of-service.html class=link-static>Terms of Service</a></p>
-                            <p>Cookie Policy</p>
-                            <p>Intellectual Property</p>
                         </div>
-                        <div class="col-sm-3">
-                            <h3>SOCIAL</h3>
-                            <p><img src="https://img.icons8.com/android/100/000000/twitter.png" width="35px" /><img src="https://img.icons8.com/windows/100/000000/instagram-new.png" width="40px" /><img src="https://img.icons8.com/ios-filled/100/000000/tiktok.png"
-                                    width="35px" /><img src="https://img.icons8.com/material-sharp/100/000000/youtube-play.png" width="40px" /><img src="https://img.icons8.com/material-rounded/100/000000/facebook.png" width="36px" /></p>
+                        <div class="col-sm-3" id="SOCIAL">
+                            <h3 style="font-weight: bold;">SOCIAL</h3>
+                            <p>
+                                <!--<img src="https://img.icons8.com/android/100/000000/twitter.png" width="35px" /><img src="https://img.icons8.com/windows/100/000000/instagram-new.png" width="40px" /><img src="https://img.icons8.com/ios-filled/100/000000/tiktok.png" width="35px" /><img src="https://img.icons8.com/material-sharp/100/000000/youtube-play.png"
+                                    width="40px" />
+                                <a href="https://www.facebook.com/akadbkadlove">--><img src="https://img.icons8.com/material-rounded/100/000000/facebook.png" width="36px" /></a>
+                            </p>
                         </div>
 
-                        <div class="col-sm-3">
-                            <h3>FAQ</h3>
-                            <p>Contact Us</p>
+                        <div class="col-sm-3" id="FAQ">
+                            <h3 style="font-weight: bold;">FAQ</h3>
+                            <p><a style="text-decoration:none" href=contact-us.html class=link-static>Contact Us</a></p>
                         </div>
                     </div>
                 </div><br>
 
-                <div class="col-sm-12">
+                <div class="col-sm-12" id="APP">
                     <h3 class="border">GET THE APP! <img src="https://www.hna.com.sa/assets/front/images/apple.png" width="250px"></h3>
                     <br>
-                    <p>Single people, listen up: If you’re looking for love, want to start dating, or just keep it casual, you need to be on Tinder. With over 55 billion matches made, it’s the place to be to meet your next best match. Let’s be real, the
-                        dating landscape looks very different today, as most people are meeting online. With Tinder, the world’s most popular free dating app, you have millions of other single people at your fingertips and they’re all ready to meet someone
-                        like you. Whether you’re straight or in the LGBTQIA community, Tinder’s here to bring you all the sparks.
-                    </p>
-                    <p class="border">There really is something for everyone on Tinder. Want to get into a relationship? You got it. Trying to find some new friends? Say no more. New kid on campus and looking to make the most of your college experience? Tinder U’s got
-                        you covered. Tinder isn’t your average dating site — it’s the most diverse dating app, where adults of all backgrounds and experiences are invited to make connections, memories, and everything in between.
-                    </p>
-
-                    <br><br>
                     <p>© 2021 Akadbkad - All Rights Reserved</p>
                 </div>
             </footer>

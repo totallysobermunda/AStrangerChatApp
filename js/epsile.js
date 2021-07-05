@@ -34,9 +34,9 @@ var Epsile = new function() {
 
     function setTyping(state) {
         if (state) {
-            isTypingDiv.style.bottom = 65 + "px";
+            isTypingDiv.style.bottom = 55 + "px";
         } else {
-            isTypingDiv.style.bottom = (65 - isTypingDiv.offsetHeight) + "px";
+            isTypingDiv.style.bottom = (55 - isTypingDiv.offsetHeight) + "px";
         }
         strangerTyping = state;
     }
@@ -66,7 +66,6 @@ var Epsile = new function() {
             sendButton.disabled = false;
             sendButton.value = "Send";
             chatArea.disabled = false;
-            camera.disabled = false;
             chatArea.value = "";
             chatArea.focus();
         });
@@ -95,7 +94,6 @@ var Epsile = new function() {
             disconnectType = true;
             disconnectButton.disabled = false;
             sendButton.disabled = true;
-            camera.disabled = true;
             //logChat(-1, "<input type=button value='Start a new chat' onclick='Epsile.newStranger();'>");
             disconnectButton.value = "New";
             sendButton.value = "Send";
@@ -157,16 +155,16 @@ var Epsile = new function() {
                 node.style.justifyContent = "flex-end";
                 who = "<div><span class='message-you'><span class='youChat'><\/span>";
             }
-            if (message.substr(0, 4) === '/me ') {
-                message = message.substr(4);
-                if (type === 2) {
-                    who = "<span class='strangerChat'>*** Stranger <\/span>";
-                    who2 = "*** Stranger ";
-                } else {
-                    who = "<span class='youChat'>*** You <\/span>";
-                }
-            }
-            message = message.replace(/\</g, "&lt;").replace(/\>/g, "&gt;");
+            // if (message.substr(0, 4) === '/me ') {
+            //  message = message.substr(4);
+            //  if (type === 2) {
+            //      who = "<span class='strangerChat'>*** Stranger <\/span>";
+            //     who2 = "*** Stranger ";
+            // } else {
+            //     who = "<span class='youChat'>*** You <\/span>";
+            // }
+            //     }
+            message = message.replace(/\ < /g, "&lt;").replace(/\ > /g, "&gt;");
             var msg = message.split(" ");
             for (var i = 0; i < msg.length; i += 1) {
                 if (url_pattern.test(msg[i]) && msg[i].indexOf("\"") === -1) {
@@ -239,17 +237,22 @@ var Epsile = new function() {
             disconnectButton.value = "Disconnect";
             Epsile.newStranger();
         } else if (socket) {
-            socket.emit("disconn");
-            chatArea.disabled = true;
-            chatArea.focus();
-            disconnectType = true;
-            disconnectButton.disabled = true;
-            disconnectButton.value = "Disconnect";
+            var proceed = confirm("Are you sure you want to Disconnect?");
+            if (proceed) {
+                socket.emit("disconn");
+                chatArea.disabled = true;
+                chatArea.focus();
+                disconnectType = true;
+                disconnectButton.disabled = true;
+                disconnectButton.value = "Disconnect";
+            } else {
+                //cancel
+            }
         }
     };
 
     this.doSend = function() {
-        var msg = chatArea.value;
+        var msg = chatArea.innerHTML;
         if (msg.length > 0) {
             if (typingtimer !== null) {
                 clearTimeout(typingtimer);
@@ -260,7 +263,7 @@ var Epsile = new function() {
             isTyping = false;
             socket.emit("chat", msg);
             logChat(1, msg);
-            chatArea.value = "";
+            chatArea.innerText = "";
         }
     };
 
@@ -348,3 +351,32 @@ var Epsile = new function() {
         }
     }, false);
 };
+
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            //document.getElementById('chatArea').setAttribute('src', e.target.result);
+            const img = document.createElement("img");
+            img.src = e.target.result;
+            img.style.height = "300px";
+            img.style.width = "300px";
+            chatArea.appendChild(img);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+
+document.getElementById('file').onchange = function() {
+    readURL(this);
+};
+
+function redirect() {
+    if (confirm('Are you sure you want to go back to home page?')) {
+        document.location = 'https://akadbkad.com'
+    }
+}
