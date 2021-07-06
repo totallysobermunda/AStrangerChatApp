@@ -42,10 +42,9 @@
 
             <section id="panelRow" class="topborder">
                 <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
-                <label for="file" style="cursor: pointer;"><img id="camera" src="https://img.icons8.com/ios-glyphs/240/000000/unsplash.png "></label>
+                <label for="file" style="cursor: pointer; pointer-events: none;"><img id="camera" src="https://img.icons8.com/ios-glyphs/240/000000/unsplash.png "></label>
                 <input type="image" id="sendButton" disabled src="https://img.icons8.com/ios-glyphs/90/26e07f/filled-sent.png ">
-                <div id="chatArea" contenteditable style="width: 92%; outline: none;">
-
+                <div id="chatArea" contenteditable style="width: 92%; outline: none; pointer-events: none;">
                 </div>
             </section>
 
@@ -134,8 +133,8 @@
                             <h3 style="font-weight: bold;">SOCIAL</h3>
                             <p>
                                 <!--<img src="https://img.icons8.com/android/100/000000/twitter.png" width="35px" /><img src="https://img.icons8.com/windows/100/000000/instagram-new.png" width="40px" /><img src="https://img.icons8.com/ios-filled/100/000000/tiktok.png" width="35px" /><img src="https://img.icons8.com/material-sharp/100/000000/youtube-play.png"
-                                    width="40px" />
-                                <a href="https://www.facebook.com/akadbkadlove">--><img src="https://img.icons8.com/material-rounded/100/000000/facebook.png" width="36px" /></a>
+                                    width="40px" />-->
+                                <a href="https://www.facebook.com/akadbkadlove"><img src="https://img.icons8.com/material-rounded/100/000000/facebook.png" width="36px" /></a>
                             </p>
                         </div>
 
@@ -147,7 +146,7 @@
                 </div><br>
 
                 <div class="col-sm-12" id="APP">
-                    <h3 class="border">GET THE APP! <img src="https://www.hna.com.sa/assets/front/images/apple.png" width="250px"></h3>
+                    <h3 class="border" style="padding: 15px;">GET THE APP! <img src="https://www.hna.com.sa/assets/front/images/apple.png" width="250px"></h3>
                     <br>
                     <p>© 2021 Akadbkad - All Rights Reserved</p>
                 </div>

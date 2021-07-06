@@ -65,15 +65,18 @@ var Epsile = new function() {
             disconnectButton.value = "Disconnect";
             sendButton.disabled = false;
             sendButton.value = "Send";
+            document.getElementById("camera").style.pointerEvents = "auto";
+            document.getElementById("chatArea").style.pointerEvents = "auto";
             chatArea.disabled = false;
             chatArea.value = "";
-            chatArea.focus();
         });
 
         socket.on('disconn', function(data) {
             var who = data.who;
             var reason = data.reason;
             chatArea.disabled = true;
+            document.getElementById("chatArea").style.pointerEvents = "none";
+            document.getElementById("camera").style.pointerEvents = "none";
 
 
 
@@ -98,7 +101,8 @@ var Epsile = new function() {
             disconnectButton.value = "New";
             sendButton.value = "Send";
             chatArea.disabled = true;
-            chatArea.focus();
+            document.getElementById("chatArea").style.pointerEvents = "none";
+            document.getElementById("camera").style.pointerEvents = "none";
         });
 
         socket.on('chat', function(message) {
@@ -125,6 +129,8 @@ var Epsile = new function() {
             logChat(-1, "<input type=button value='Reconnect' onclick='Epsile.startChat();'>");
             peopleOnlineSpan.innerHTML = "0";
             chatArea.disabled = true;
+            document.getElementById("chatArea").style.pointerEvents = "none";
+            document.getElementById("camera").style.pointerEvents = "none";
             disconnectButton.disabled = true;
             setTyping(false);
             disconnectType = false;
@@ -134,6 +140,8 @@ var Epsile = new function() {
             logChat(-1, "<input type=button value='Reconnect' onclick='Epsile.startChat();'>");
             peopleOnlineSpan.innerHTML = "0";
             chatArea.disabled = true;
+            document.getElementById("chatArea").style.pointerEvents = "none";
+            document.getElementById("camera").style.pointerEvents = "none";
             disconnectButton.disabled = true;
             sendButton.disabled = true;
             setTyping(false);
@@ -217,11 +225,12 @@ var Epsile = new function() {
     this.newStranger = function() {
         if (socket) {
             chatArea.disabled = true;
+            document.getElementById("chatArea").style.pointerEvents = "none";
+            document.getElementById("camera").style.pointerEvents = "none";
             disconnectButton.disabled = true;
             sendButton.disabled = true;
             socket.emit("new");
-            chatArea.value = "";
-            chatArea.focus();
+            chatArea.innerText = "";
             chatMainDiv.innerHTML = "";
             logChat(0, "Waiting for a stranger..", "center");
             setTyping(false);
@@ -240,8 +249,9 @@ var Epsile = new function() {
             var proceed = confirm("Are you sure you want to Disconnect?");
             if (proceed) {
                 socket.emit("disconn");
+                document.getElementById("chatArea").style.pointerEvents = "none";
+                document.getElementById("camera").style.pointerEvents = "none";
                 chatArea.disabled = true;
-                chatArea.focus();
                 disconnectType = true;
                 disconnectButton.disabled = true;
                 disconnectButton.value = "Disconnect";
@@ -307,7 +317,7 @@ var Epsile = new function() {
         var kc = e.keyCode;
         if (kc === 13) {
             if (!e.shiftKey) {
-                var msg = chatArea.value;
+                var msg = chatArea.innerHTML;
                 if (msg.length > 0) {
                     if (typingtimer !== null) {
                         clearTimeout(typingtimer);
@@ -318,7 +328,7 @@ var Epsile = new function() {
                     isTyping = false;
                     socket.emit("chat", msg);
                     logChat(1, msg);
-                    chatArea.value = "";
+                    chatArea.innerText = "";
                 }
                 e.preventDefault();
                 e.returnValue = false;
@@ -332,11 +342,11 @@ var Epsile = new function() {
                 clearTimeout(typingtimer);
             }
 
-            if (chatArea.value === "" && isTyping) {
+            if (chatArea.innerText === "" && isTyping) {
                 socket.emit("typing", false); // Not typing
                 isTyping = false;
             } else {
-                if (!isTyping && chatArea.value.length > 0) {
+                if (!isTyping && chatArea.innerText.length > 0) {
                     socket.emit("typing", true);
                     isTyping = true;
                 }
@@ -362,7 +372,7 @@ function readURL(input) {
             const img = document.createElement("img");
             img.src = e.target.result;
             img.style.height = "300px";
-            img.style.width = "300px";
+            img.style.width = "280px";
             chatArea.appendChild(img);
         }
 
