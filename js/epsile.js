@@ -368,7 +368,6 @@ function readURL(input) {
         var reader = new FileReader();
 
         reader.onload = function(e) {
-            //document.getElementById('chatArea').setAttribute('src', e.target.result);
             const img = document.createElement("img");
             img.src = e.target.result;
             img.style.height = "300px";
