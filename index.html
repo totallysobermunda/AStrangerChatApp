@@ -56,7 +56,7 @@
 
         <section id="welcomeScreen" style="	background-image: url(BG2.jpg);
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: auto;
         background-position: center center;">
 
             <section id="startButtonDiv">
@@ -76,9 +76,34 @@
                 position: relative;
                 bottom: 25px;">
                 <!--<input type=button value="Chat Room" id="chatroomButton">-->
+                <button id="chatroomButton" onclick="window.location.href='Chat-Buddy-master/public/index.html'">Chat Room</button>
+                <a id="blog" href=>BLOGS</a>
                 <!--<a href="./">
                     <div id="logo"></div>
                     </a>-->
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="#">BLOGS</a>
+                    <a style="text-decoration:none" href=safety-tips.html class=link-static>SAFETY</a>
+                    <div class="dropdown">
+                        <button id="dropdown" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">LEGAL
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu" style="left: 20px; width: 90%; background-color: #111;">
+                            <li><a a style="text-decoration:none; font-weight: bold;
+                                color: rgb(238,16,120);" href=privacy-policy.html class=link-static>Privacy Policy</a></li>
+                            <li><a style="text-decoration:none; font-weight: bold;
+                                color: rgb(238,16,120);" href=terms-of-service.html>Terms Of Service</a></li>
+                        </ul>
+                    </div>
+                    <a style="text-decoration:none" href="https://www.facebook.com/akadbkadlove" class=link-static>SOCIAL</a>
+                    <a style="text-decoration:none" href=contact-us.html class=link-static>FAQ</a>
+                    <div style="display: flex; justify-content: center;">
+                        <button id="sidebar-chatroomButton" style="font-size: 25px;" onclick="window.location.href='Chat-Buddy-master/public/index.html'">Chat Room</button>
+                    </div>
+                </div>
+                <div id="bar">
+                    <img id="hamburger" onclick="openNav()" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAAAhElEQVR4nO3aMQ6AMAwEwZj//9l8AEHlHIpm6hRWtr21AAAAAAAAADhVfT3o7t5xyKmq6vWPr12H8EyAMAHCBAgTIEyAMAEAAAAAAACG2QUNswv6OQHCBAgTIEyAMAHCBAAAAAAAABhmFzTMLujnBAgTIEyAMAHCBAgTAAAAAAAAAACG3E2GDC7VbgLhAAAAAElFTkSuQmCC">
+                </div>
             </header>
 
             <!--<section id="peopleOnlineSection">
@@ -107,6 +132,14 @@
 
             <footer class="container-fluid text-center">
                 <div class="container-fluid bg-3 text-center">
+                    <br>
+                    <div class="container testimonial-group">
+                        <div class="row text-center">
+                            <div class="col-xs-4" style="border: outset; border-color: black">BLOG 1</div>
+                            <div class="col-xs-4" style="border: outset; border-color: black">BLOG 2</div>
+                            <div class="col-xs-4" style="border: outset; border-color: black">BLOG 3</div>
+                        </div>
+                    </div>
                     <h5 style="font-weight: bold;"><br>At Akadbkad you get to talk to strangers without having to login. Moreover you get to chat anonymously. No login, no obligation and no more waiting for matches.</h5><br>
                     <p>Single people, listen up: If you’re looking for love, want to start dating, or just keep it casual, but are bored of waiting for matches, you need to be on Akadbkad. Let’s be real, the dating landscape looks very different today, as
                         most people are meeting online. With Akadbkad, you have millions of other single people at your fingertips and they’re all ready to meet someone like you. Whether you’re straight or in the LGBTQIA community, Akadbkad’s here to
@@ -132,7 +165,8 @@
                             <p>
                                 <!--<img src="https://img.icons8.com/android/100/000000/twitter.png" width="35px" /><img src="https://img.icons8.com/windows/100/000000/instagram-new.png" width="40px" /><img src="https://img.icons8.com/ios-filled/100/000000/tiktok.png" width="35px" /><img src="https://img.icons8.com/material-sharp/100/000000/youtube-play.png"
                                     width="40px" />-->
-                                <a href="https://www.facebook.com/akadbkadlove"><img src="https://img.icons8.com/material-rounded/100/000000/facebook.png" width="36px" /></a>
+                                <a href="https://www.facebook.com/akadbkadlove"><img src="https://img.icons8.com/material-rounded/100/000000/facebook.png" width="36px" style="bottom: 10px;
+                                    position: relative;" /></a>
                             </p>
                         </div>
 
