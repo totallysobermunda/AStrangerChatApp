@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-
 <head>
     <meta charset="utf-8">
     <title> Akadbkad-Talk to strangers!</title>
@@ -54,30 +51,20 @@
             </section>
         </section>
 
-        <section id="welcomeScreen" style="	background-image: url(BG2.jpg);
-        background-repeat: no-repeat;
-        background-size: auto;
-        background-position: center center;">
-
-            <section id="startButtonDiv">
-                <div class="container">
-                    <!-- <div id="description">
-                        Epsile is a simple open-source clone of <a href="http://omegle.com" target="_blank">Omegle</a>, where people get connected to other people, in a one-to-one chat.<br> If everyone is paired up, you must wait until someone finish
-                        a conversation. Chats are anonymous,<br> meaning that the strangers you chat with don't know anything about you (unless you describe yourself).
-                    </div> -->
-                    <br>
-                    <input type=button value="Start chatting!" onclick="Epsile.startChat();" class="button" id="startButton" disabled>
-                </div>
-            </section>
+        <section id="welcomeScreen">
 
 
-            <header class="border">
+            <header class="border" style="background-color: black;">
+                <section>
+                    <input type=button value="Start chatting!" onclick="Epsile.startChat();" class="button" id="start">
+
+                </section>
                 <img src="akadbkad white.png" style="width: 200px;
                 position: relative;
                 bottom: 25px;">
                 <!--<input type=button value="Chat Room" id="chatroomButton">-->
                 <!-- <button id="chatroomButton" onclick="window.location.href='Chat-Buddy-master/public/index.html'">Chat Room</button> -->
-                <a id="blog" href="Blogs.html">BLOGS</a>
+                <!-- <a id="blog" href="Blogs.html">BLOGS</a> -->
                 <!--<a href="./">
                     <div id="logo"></div>
                     </a>-->
@@ -98,7 +85,7 @@
                     <a style="text-decoration:none" href="https://www.facebook.com/akadbkadlove" class=link-static>SOCIAL</a>
                     <a style="text-decoration:none" href=contact-us.html class=link-static>FAQ</a>
                     <div style="display: flex; justify-content: center;">
-                        <button id="sidebar-chatroomButton" style="font-size: 25px;" onclick="window.location.href='Chat-Buddy-master/public/index.html'">Chat Room</button>
+                        <button id="sidebar-start" style="font-size: 20px;" onclick="Epsile.startChat();">Start chatting!</button>
                     </div>
                 </div>
                 <div id="bar">
@@ -106,50 +93,9 @@
                 </div>
             </header>
 
-            <!--<section id="peopleOnlineSection">
-                <span id="peopleOnlineSpan">0</span> online
-            </section>-->
-            <!-- <section id="badges">
-                <div>
-                    <span id="sharebuttons">
-					<a href="https://twitter.com/share" class="twitter-share-button" data-text="Epsile: An Omegle clone created with HTML5" data-via="daniel_hede" data-related="omegle" data-hashtags="epsile">Tweet</a><br>
-					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-					<div class="g-plusone"></div>
-					<script type="text/javascript">
-					  (function() {
-						var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-						po.src = 'https://apis.google.com/js/plusone.js';
-						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-					  })();
-					</script>
-				</span> -->
-            <!-- <a href="http://nodejs.org" target="_blank"><img src="img/nodejs-love2.png" align=top vspace=6></a> -->
-            <!-- &nbsp;
-            <a href="http://www.w3.org/html/logo/" target="_blank"><img src="img/html5-badge-h-connectivity-css3.png"></a>
-            </div>
-            
-        </section> -->
-
             <footer class="container-fluid text-center">
                 <div class="container-fluid bg-3 text-center">
                     <br>
-                    <div class="container testimonial-group">
-                        <div class="row text-center">
-                            <div class="col-xs-4" style=" height: 300px; width: 300px; margin-right: 120px; box-shadow: 1px 3px 20px #000;"></div>
-                            <div class="col-xs-4" style=" height: 300px; width: 300px; margin-right: 120px; box-shadow: 1px 3px 20px #000;"></div>
-                            <div class="col-xs-4" style=" height: 300px;width: 300px; box-shadow: 1px 3px 20px #000;"></div>
-                        </div>
-                    </div>
-                    <h5 style="font-weight: bold;"><br>At Akadbkad you get to talk to strangers without having to login. Moreover you get to chat anonymously. No login, no obligation and no more waiting for matches.</h5><br>
-                    <p>Single people, listen up: If you’re looking for love, want to start dating, or just keep it casual, but are bored of waiting for matches, you need to be on Akadbkad. Let’s be real, the dating landscape looks very different today, as
-                        most people are meeting online. With Akadbkad, you have millions of other single people at your fingertips and they’re all ready to meet someone like you. Whether you’re straight or in the LGBTQIA community, Akadbkad’s here to
-                        bring you all the sparks.
-                    </p>
-                    <p>There really is something for everyone on Akadbkad. Want to get into a relationship? You got it. Trying to find some new friends? Say no more. New kid on campus and looking to make the most of your college experience? Akadbkad isn’t
-                        just your average dating site — it’s a place where you actually get to talk to people without and login. With Akadbkad, no more waiting for matches. No login, Chat anonymously.
-                    </p>
-                    <p>Akadbkad is 100% safe and secured. All you chats are deleted the moment you disconnect.</p>
-                    <p class="border">For any further info you can check out our <a href="privacy-policy.html">Privacy policy</a> and <a href="terms-of-service.html">Terms of service.</a></p>
                     <div class="row">
                         <div class="col-sm-3" id="SAFETY">
                             <h3 style="font-weight: bold;">SAFETY</h3>
@@ -188,9 +134,9 @@
     </section>
 
     <audio id="alertSound">
-	<source src="media/alert.ogg" />
-	<source src="media/alert.mp3" />
-</audio>
+        <source src="media/alert.ogg" />
+        <source src="media/alert.mp3" />
+    </audio>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/epsile.js"></script>
