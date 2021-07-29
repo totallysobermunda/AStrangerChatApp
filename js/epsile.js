@@ -362,9 +362,19 @@ var Epsile = new function() {
     }, false);
 };
 
-function readURL(input) {
+function readURL(inputfile) {
 
-    if (input.files && input.files[0]) {
+    if (inputfile.files && inputfile.files[0]) {
+
+        const fsize = inputfile.files.item(0).size;
+        const file = Math.round((fsize / 1024));
+        // The size of the file.
+        if (file >= 700) {
+            alert(
+                "File too Big, please select a file less than 700kb");
+            return
+
+        }
         var reader = new FileReader();
 
         reader.onload = function(e) {
@@ -375,10 +385,9 @@ function readURL(input) {
             chatArea.appendChild(img);
         }
 
-        reader.readAsDataURL(input.files[0]);
+        reader.readAsDataURL(inputfile.files[0]);
     }
 }
-
 
 document.getElementById('file').onchange = function() {
     readURL(this);
@@ -388,6 +397,42 @@ function redirect() {
     if (confirm('Are you sure you want to go back to home page?')) {
         document.location = 'https://akadbkad.com'
     }
+}
+
+function blog1() {
+    document.location = "BLOG1.html"
+}
+
+function blog2() {
+    document.location = "BLOG2.html"
+}
+
+function blog3() {
+    document.location = "BLOG3.html"
+}
+
+function blog4() {
+    document.location = "BLOG4.html"
+}
+
+function blog5() {
+    document.location = "BLOG5.html"
+}
+
+function blog6() {
+    document.location = "BLOG6.html"
+}
+
+function blog7() {
+    document.location = "BLOG7.html"
+}
+
+function blog8() {
+    document.location = "BLOG8.html"
+}
+
+function blog9() {
+    document.location = "BLOG9.html"
 }
 
 function openNav() {
