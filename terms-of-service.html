@@ -1,99 +1,174 @@
-<ons-page id=privacy static_page=1 class=privacy title=Terms of service>
-    <style>
-        .Terms {
-            padding: 0% 15%;
-        }
-        
-        .scroll {
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
-        
-        .hidden {
-            display: none
-        }
-        
-        header {
-            padding: 0% 14.2%;
-            height: 15%;
-            width: 100%;
-        }
-        
-        .border {
-            border-bottom-style: solid;
-            border-color: #e8e8e8;
-            border-bottom-width: 1px;
-            display: flex;
-        }
-    </style>
-    <ons-toolbar class=hidden>
-        <div class=left>
-            <ons-back-button>Back</ons-back-button>
-        </div>
-        <div class=center>
-            <b>Terms of service<b></div>
-    </ons-toolbar>
-
-    <meta name="robots" content="noindex" />
+<head>
+    <meta charset="utf-8">
+    <title> Akadbkad-Talk to strangers!</title>
+    <!-- <link rel="icon" type="image/png" href="img/epsile_logo16.png"> -->
+    <link rel="stylesheet/less" type="text/css" href="style/epsile.less">
+    <meta name=description content="Best place to talk to strangers. Completely anonymously.
+                No logs, No registration, No obligations.">
+    <meta itemprop=name content="Anonymous chat for two - best place to talk to strangers completely anonymously">
+    <meta itemprop=description content="Best place to talk to strangers. Completely anonymously.
+                No logs, No registration, No obligations.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="akadbkad FAVICON.png" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <nav class="navbar navbar-dark primary-color" style="border-bottom-style: solid;
-    border-color: #e8e8e8;
-    border-bottom-width: 1px;">
-        <a class="container-fluid text-center" href='https://akadbkad.com'>
-          <img src="akadbkad.png" height="80px" width="auto">
-        </a>
-    </nav>
-        <div class="Terms">
-            <h1>Terms of service</h1>
-            <p style="color:grey">
-                This Terms of Service Agreement (hereinafter "Agreement") sets forth the terms and
-                conditions by which we, Akadbkad, provide the Akadbkad Application Services to site
-                visitors, users. By visiting our site, using any of the tools and services provided via our
-                site, you thereby agree to be bound by each of the terms and conditions of this
-                Agreement.
-            </p>
-            <p style="color:grey">
-                We may automatically amend this Agreement at any time by informing you of the
-                amended terms. For user to Akadbkad it is their responsibility to read this Terms of
-                Service each time they access any portion of our site. Any usage of this site by you,
-                including merely viewing our home page or any page published on our site, as an
-                unregistered Akadbkad's user, means that you agree to be bound by each and every one
-                of the terms and conditions of this Terms of Service Agreement.
-            </p>
-            <h3>1. General</h3>
-            <p style="color:grey">Akadbkad is always striving to improve the Service and bring you additional functionality
-                that you will find engaging and useful. This means we may add new product features or
-                enhancements from time to time as well as remove some features, and if these actions do
-                not materially affect your rights or obligations, we may not provide you with notice before
-                taking them.
-            </p>
-            <h3>2. Privacy vs Violations</h3>
-            <p style="color:grey">No third parties can access the content you share in the app.<br>
-                Despite the fact that this space is anonymous and secure, users are obliged to follow the
-                rules. We will never support terrorism, pedophilia, violence, underaged users,
-                pornography, bullying or other restrictive behavior.
-            <br>
-            </p>
-            <h3>3. Community Rules.</h3>
-            <p style="color:grey">
-                By using the Service, you agree that you will not:<br>
-                use the Service for any purpose that is illegal or prohibited by this Agreement.<br>
-                use the Service for any harmful or nefarious purpose.<br>
-                use the Service in order to damage Akadbkad.<br>
-                spam, solicit money from or defraud any users.<br>
-                impersonate any person or entity or post any images of another person without his or her
-                permission.<br>
-                bully, “stalk,” intimidate, assault, harass, mistreat or defame any person.<br>
-                post any Content that violates or infringes anyone’s rights, including rights of publicity,
-                privacy, copyright, trademark or other intellectual property or contract right.<br>
-                post any Content that is hate speech, threatening, sexually explicit or pornographic;
-                incites violence; or contains nudity or graphic or gratuitous violence.<br>
-                post any Content that promotes racism, bigotry, hatred or physical harm of any kind
-                against any group or individual.<br>
-            </p>
-            </div>
-        </div>
-</ons-page>
+    <script>
+        var less = {
+            env: "development"
+        };
+    </script>
+    <script src="js/lib/less-1.7.0.min.js"></script>
+</head>
+
+<body>
+
+    <section id="container">
+        <section id="chatWindow">
+            <section id="chatMain">
+                <header class="border" style="border-bottom-width: 5px;">
+                    <img src="akadbkad.png" onclick="redirect()" width="auto" ; height="60px">
+                    <input type=button value="Disconnect" id="disconnectButton" disabled>
+                </header>
+                <div id="chatMainDiv" style="position: relative; top: 60px;"></div>
+                <p><img id="output" width="200" /></p>
+            </section>
+
+            <div id="isTypingDiv" class="consoleChat">Stranger&nbsp;is&nbsp;typing...</div>
+
+            <section id="panelRow" class="topborder">
+                <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
+                <label for="file" style="cursor: pointer; pointer-events: none;"><img id="camera" src="https://img.icons8.com/ios-glyphs/240/000000/unsplash.png "></label>
+                <input type="image" id="sendButton" disabled src="https://img.icons8.com/ios-glyphs/90/26e07f/filled-sent.png ">
+                <div id="chatArea" contenteditable style="width: 92%; outline: none; pointer-events: none;">
+                </div>
+            </section>
+
+            <section id="peopleOnlineSection">
+                <span id="peopleOnlineSpan">0</span> online
+                <!-- <input type=button value="Disconnect" id="disconnectButton" disabled> -->
+            </section>
+        </section>
+
+        <section id="welcomeScreen">
+
+
+            <header class="border" style="background-color: black;">
+                <section>
+                    <input type=button value="Start chatting!" onclick="Epsile.startChat();" class="button" id="start">
+
+                </section>
+                <img src="akadbkad white.png" onclick="redirect()" style="width: 200px;
+                            position: relative;
+                            bottom: 25px;">
+                <!--<input type=button value="Chat Room" id="chatroomButton">-->
+                <!-- <button id="chatroomButton" onclick="window.location.href='Chat-Buddy-master/public/index.html'">Chat Room</button> -->
+                <!-- <a id="blog" href="Blogs.html">BLOGS</a> -->
+                <!--<a href="./">
+                                <div id="logo"></div>
+                                </a>-->
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="Blogs.html">BLOGS</a>
+                    <a style="text-decoration:none" href=safety-tips.html class=link-static>SAFETY</a>
+                    <div class="dropdown">
+                        <button id="dropdown" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">LEGAL
+                                    <span class="caret"></span></button>
+                        <ul class="dropdown-menu" style="left: 20px; width: 90%; background-color: #111;">
+                            <li><a a style="text-decoration:none; font-weight: bold;
+                                            color: rgb(238,16,120);" href=privacy-policy.html class=link-static>Privacy Policy</a></li>
+                            <li><a style="text-decoration:none; font-weight: bold;
+                                            color: rgb(238,16,120);" href=terms-of-service.html>Terms Of Service</a></li>
+                        </ul>
+                    </div>
+                    <a style="text-decoration:none" href="https://www.facebook.com/akadbkadlove" class=link-static>SOCIAL</a>
+                    <a style="text-decoration:none" href=contact-us.html class=link-static>FAQ</a>
+                    <div style="display: flex; justify-content: center;">
+                        <button id="sidebar-start" style="font-size: 20px;" onclick="Epsile.startChat();">Start chatting!</button>
+                    </div>
+                </div>
+                <div id="bar">
+                    <img id="hamburger" onclick="openNav()" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAAAhElEQVR4nO3aMQ6AMAwEwZj//9l8AEHlHIpm6hRWtr21AAAAAAAAADhVfT3o7t5xyKmq6vWPr12H8EyAMAHCBAgTIEyAMAEAAAAAAACG2QUNswv6OQHCBAgTIEyAMAHCBAAAAAAAABhmFzTMLujnBAgTIEyAMAHCBAgTAAAAAAAAAACG3E2GDC7VbgLhAAAAAElFTkSuQmCC">
+                </div>
+            </header>
+            <section style="position: absolute; top: 50px;">
+                <div class="Terms" style="padding-left: 30px; padding-right: 30px;">
+                    <h1>Terms of service</h1>
+                    <p style="color:grey">
+                        This Terms of Service Agreement (hereinafter "Agreement") sets forth the terms and conditions by which we, Akadbkad, provide the Akadbkad Application Services to site visitors, users. By visiting our site, using any of the tools and services provided
+                        via our site, you thereby agree to be bound by each of the terms and conditions of this Agreement.
+                    </p>
+                    <p style="color:grey">
+                        We may automatically amend this Agreement at any time by informing you of the amended terms. For user to Akadbkad it is their responsibility to read this Terms of Service each time they access any portion of our site. Any usage of this site by you, including
+                        merely viewing our home page or any page published on our site, as an unregistered Akadbkad's user, means that you agree to be bound by each and every one of the terms and conditions of this Terms of Service Agreement.
+                    </p>
+                    <h3>1. General</h3>
+                    <p style="color:grey">Akadbkad is always striving to improve the Service and bring you additional functionality that you will find engaging and useful. This means we may add new product features or enhancements from time to time as well as remove some features,
+                        and if these actions do not materially affect your rights or obligations, we may not provide you with notice before taking them.
+                    </p>
+                    <h3>2. Privacy vs Violations</h3>
+                    <p style="color:grey">No third parties can access the content you share in the app.<br> Despite the fact that this space is anonymous and secure, users are obliged to follow the rules. We will never support terrorism, pedophilia, violence, underaged users,
+                        pornography, bullying or other restrictive behavior.
+                        <br>
+                    </p>
+                    <h3>3. Community Rules.</h3>
+                    <p style="color:grey">
+                        By using the Service, you agree that you will not:<br> use the Service for any purpose that is illegal or prohibited by this Agreement.<br> use the Service for any harmful or nefarious purpose.<br> use the Service in order to damage
+                        Akadbkad.
+                        <br> spam, solicit money from or defraud any users.<br> impersonate any person or entity or post any images of another person without his or her permission.
+                        <br> bully, “stalk,” intimidate, assault, harass, mistreat or defame any person.<br> post any Content that violates or infringes anyone’s rights, including rights of publicity, privacy, copyright, trademark or other intellectual
+                        property or contract right.
+                        <br> post any Content that is hate speech, threatening, sexually explicit or pornographic; incites violence; or contains nudity or graphic or gratuitous violence.<br> post any Content that promotes racism, bigotry, hatred or physical
+                        harm of any kind against any group or individual.<br>
+                    </p>
+                </div>
+            </section>
+            <footer class="container-fluid text-center">
+                <div class="container-fluid bg-3 text-center">
+                    <br>
+                    <div class="row" style="border-top-style: solid;
+                        border-top-width: 1px;
+                        padding-top: 10px;
+                        border-color: #e8e8e8;">
+                        <div class="col-sm-3" id="SAFETY">
+                            <h3 style="font-weight: bold;">SAFETY</h3>
+                            <p><a style="text-decoration:none" href=safety-tips.html class=link-static>Safety Tips</a></p>
+                        </div>
+                        <div class="col-sm-3" id="LEGAL">
+                            <h3 style="font-weight: bold;">LEGAL</h3>
+                            <p><a style="text-decoration:none" href=privacy-policy.html class=link-static>Privacy Policy</a></p>
+                            <p><a style="text-decoration:none" href=terms-of-service.html class=link-static>Terms of Service</a></p>
+                        </div>
+                        <div class="col-sm-3" id="SOCIAL">
+                            <h3 style="font-weight: bold;">SOCIAL</h3>
+                            <p>
+                                <!--<img src="https://img.icons8.com/android/100/000000/twitter.png" width="35px" /><img src="https://img.icons8.com/windows/100/000000/instagram-new.png" width="40px" /><img src="https://img.icons8.com/ios-filled/100/000000/tiktok.png" width="35px" /><img src="https://img.icons8.com/material-sharp/100/000000/youtube-play.png"
+                                        width="40px" />-->
+                                <a href="https://www.facebook.com/akadbkadlove"><img src="https://img.icons8.com/material-rounded/100/000000/facebook.png" width="36px" style="bottom: 10px;
+                                        position: relative;" /></a>
+                            </p>
+                        </div>
+
+                        <div class="col-sm-3" id="FAQ">
+                            <h3 style="font-weight: bold;">FAQ</h3>
+                            <p><a style="text-decoration:none" href=contact-us.html class=link-static>Contact Us</a></p>
+                        </div>
+                    </div>
+                </div><br>
+
+                <div class="col-sm-12" id="APP">
+                    <h3 class="border" style="padding: 15px; border-top-style:solid; border-top-width: 1px; padding-top: 30px;">GET THE APP! <img src="https://www.hna.com.sa/assets/front/images/apple.png" width="250px"></h3>
+                    <br>
+                    <p>© 2021 Akadbkad - All Rights Reserved</p>
+                </div>
+            </footer>
+
+            <audio id="alertSound">
+                        <source src="media/alert.ogg" />
+                        <source src="media/alert.mp3" />
+                    </audio>
+
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="js/epsile.js"></script>
+</body>
