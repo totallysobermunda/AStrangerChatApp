@@ -54,7 +54,7 @@
         <section id="welcomeScreen">
 
 
-            <header class="border" style="background-color: black;">
+            <header class="border" style="background-color: black; border-color: black; position: relative;">
                 <section>
                     <input type=button value="Start chatting!" onclick="Epsile.startChat();" class="button" id="start">
 
@@ -93,32 +93,83 @@
                 </div>
             </header>
 
+            <section style="background-image: url('https://preview.colorlib.com/theme/bona/images/xslider-1.jpg.pagespeed.ic.JdVVHR3UYR.jpg'); height: 60%;"></section>
+
             <section class="container-fluid text-center" style="position: relative; top: 100px;">
                 <div class="container-fluid bg-3 text-center">
                     <br>
-                    <div class="container testimonial-group">
-                        <div class="row text-center">
-                            <div class="col-xs-4" onclick="blog1()" style=" height: 300px; width: 300px; margin-right: 120px; box-shadow: 1px 3px 20px #000;"></div>
-                            <div class="col-xs-4" onclick="blog2()" style=" height: 300px; width: 300px; margin-right: 120px; box-shadow: 1px 3px 20px #000;"></div>
-                            <div class="col-xs-4" onclick="blog3()" style=" height: 300px;width: 300px; box-shadow: 1px 3px 20px #000;"></div>
+
+                    <div class="row" id="blog-position" style="display: flex; justify-content: center;">
+                        <div class="col-xs-4" id="box1" onclick="blog1()" style=" height: 300px; width: 300px; margin-right: 120px; box-shadow: 1px 3px 20px #000;">
+                            <div class="card">
+                                <div class="blog-image"></div>
+                                <div class="blog-text">abcd</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4" id="box2" onclick="blog2()" style=" height: 300px; width: 300px; margin-right: 120px; box-shadow: 1px 3px 20px #000;">
+                            <div class="card">
+                                <div class="blog-image"></div>
+                                <div class="blog-text">abcd</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4" id="box3" onclick="blog3()" style=" height: 300px;width: 300px; box-shadow: 1px 3px 20px #000;">
+                            <div class="card">
+                                <div class="blog-image"></div>
+                                <div class="blog-text">abcd</div>
+                            </div>
                         </div>
                     </div>
+
                     <br>
-                    <div class="container testimonial-group">
-                        <div class="row text-center">
-                            <div class="col-xs-4" onclick="blog4()" style=" height: 300px; width: 300px; margin-right: 120px; box-shadow: 1px 3px 20px #000;"></div>
-                            <div class="col-xs-4" onclick="blog5()" style=" height: 300px; width: 300px; margin-right: 120px; box-shadow: 1px 3px 20px #000;"></div>
-                            <div class="col-xs-4" onclick="blog6()" style=" height: 300px;width: 300px; box-shadow: 1px 3px 20px #000;"></div>
-                        </div>
-                    </div>
                     <br>
-                    <div class="container testimonial-group">
-                        <div class="row text-center">
-                            <div class="col-xs-4" onclick="blog7()" style=" height: 300px; width: 300px; margin-right: 120px; box-shadow: 1px 3px 20px #000;"></div>
-                            <div class="col-xs-4" onclick="blog8()" style=" height: 300px; width: 300px; margin-right: 120px; box-shadow: 1px 3px 20px #000;"></div>
-                            <div class="col-xs-4" onclick="blog9()" style=" height: 300px;width: 300px; box-shadow: 1px 3px 20px #000;"></div>
+                    <br>
+
+                    <div class="row" id="blog-position" style="display: flex; justify-content: center;">
+                        <div class="col-xs-4" id="box1" onclick="blog4()" style=" height: 300px; width: 300px; margin-right: 120px; box-shadow: 1px 3px 20px #000;">
+                            <div class="card">
+                                <div class="blog-image"></div>
+                                <div class="blog-text">abcd</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4" id="box2" onclick="blog5()" style=" height: 300px; width: 300px; margin-right: 120px; box-shadow: 1px 3px 20px #000;">
+                            <div class="card">
+                                <div class="blog-image"></div>
+                                <div class="blog-text">abcd</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4" id="box3" onclick="blog6()" style=" height: 300px;width: 300px; box-shadow: 1px 3px 20px #000;">
+                            <div class="card">
+                                <div class="blog-image"></div>
+                                <div class="blog-text">abcd</div>
+                            </div>
                         </div>
                     </div>
+
+                    <br>
+                    <br>
+                    <br>
+
+                    <div class="row" id="blog-position" style="display: flex; justify-content: center;">
+                        <div class="col-xs-4" id="box1" onclick="blog7()" style=" height: 300px; width: 300px; margin-right: 120px; box-shadow: 1px 3px 20px #000;">
+                            <div class="card">
+                                <div class="blog-image"></div>
+                                <div class="blog-text">abcd</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4" id="box2" onclick="blog8()" style=" height: 300px; width: 300px; margin-right: 120px; box-shadow: 1px 3px 20px #000;">
+                            <div class="card">
+                                <div class="blog-image"></div>
+                                <div class="blog-text">abcd</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4" id="box3" onclick="blog9()" style=" height: 300px;width: 300px; box-shadow: 1px 3px 20px #000;">
+                            <div class="card">
+                                <div class="blog-image"></div>
+                                <div class="blog-text">abcd</div>
+                            </div>
+                        </div>
+                    </div>
+
                     <br>
                     <div class="row" style="border-top-style: solid;
                     border-top-width: 1px;

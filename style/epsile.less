@@ -553,13 +553,53 @@ textarea:focus {
 	}
 }
 
+@media(min-width:375px) and (max-width: 400px) {
+	#SAFETY {
+        width: 172px;
+    }
+    #LEGAL {
+        width: fit-content;
+        left: 180px;
+        bottom: 75px;
+    }
+    #SOCIAL {
+        width: 172px;
+        bottom: 50px;
+    }
+    #FAQ {
+        width: fit-content;
+        bottom: 142px;
+        left: 199px;
+    }
+    #APP{
+        bottom: 152px;
+        border-top-style: none;
+    }
+    .row {
+        border-bottom-style: none;
+    }
+	#blog-position {
+		padding-left: 25px;
+		display: block !important;
+		padding-bottom: 100px;
+	}
+	#box2 {
+		position: relative;
+		top: 50px;
+	}
+	#box3 {
+		position: relative;
+		top: 100px;
+	}
+}
+
 @media(min-width: 1200px) {
     .message-stranger, .message-you {
     max-width: 1200px;
     }
 }
 
-@media(min-width:360px) and (max-width: 400px) {
+@media(min-width:360px) and (max-width: 374px) {
     #SAFETY {
         width: 172px;
     }
@@ -584,6 +624,19 @@ textarea:focus {
     .row {
         border-bottom-style: none;
     }
+	#blog-position {
+		padding-left: 15px;
+		display: block !important;
+		padding-bottom: 100px;
+	}
+	#box2 {
+		position: relative;
+		top: 50px;
+	}
+	#box3 {
+		position: relative;
+		top: 100px;
+	}
 }
 
 @media(min-width:401px) and (max-width: 420px) {
@@ -610,6 +663,19 @@ textarea:focus {
         border-color: #e8e8e8;
 		border-bottom-style: none;
     }
+	#blog-position {
+		padding-left: 40px;
+		display: block !important;
+		padding-bottom: 100px;
+	}
+	#box2 {
+		position: relative;
+		top: 50px;
+	}
+	#box3 {
+		position: relative;
+		top: 100px;
+	}
 }
 
 #myFileInput {
@@ -643,7 +709,7 @@ textarea:focus {
   }
   
   /* Decorations */
-  .col-xs-4 { color: #fff; font-size: 48px; padding-bottom: 20px; padding-top: 18px; }
+  .col-xs-4 { color: #fff; font-size: 48px; padding-right: 0px !important; padding-left: 0px !important;}
   .col-xs-4:nth-child(3n+1)
   .col-xs-4:nth-child(3n+2)
   .col-xs-4:nth-child(3n+3)
@@ -717,4 +783,17 @@ textarea:focus {
 	&:focus {
 		outline: none;
 	}
+}
+
+.card {
+	height: 300px;
+    width: 300px;
+}
+
+.blog-image {
+	background-image: url('https://image.shutterstock.com/image-photo/saintpetersburgrussia-09092019-still-life-composition-260nw-1527582842.jpg');
+	height: 150px;
+}
+.blog-text {
+	color: black;
 }
